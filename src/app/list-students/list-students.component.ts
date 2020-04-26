@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { StudentService } from '../shared/services/student.service';
 import { Student } from '../shared/models/student';
+import Swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-list-students',
@@ -30,6 +32,15 @@ export class ListStudentsComponent implements OnInit {
 
   delete(id: string) {
     this.studentService.deleteStudent(id);
+    this.showModelDelete();
   }
 
+  showModelDelete(){
+    Swal.fire({
+      title: 'Deleted',
+      text: 'Student deleted',
+      icon: 'info',
+    })
+    
+  }
 }

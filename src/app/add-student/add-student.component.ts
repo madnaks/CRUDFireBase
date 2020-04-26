@@ -3,6 +3,7 @@ import { Student } from '../shared/models/student';
 import { StudentService } from '../shared/services/student.service';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-add-student',
@@ -17,7 +18,8 @@ export class AddStudentComponent implements OnInit {
 
   constructor(
     private studentService: StudentService,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute,
+    private toastr:ToastrService) { }
 
   ngOnInit(): void {
     this.route.queryParams.subscribe(params  => {
@@ -37,6 +39,7 @@ export class AddStudentComponent implements OnInit {
   save() {
     if (!this.student.id) {
       this.studentService.addStudent({ ...this.student }).then((res) => {
+        this.toastr.success('Student added', 'Succeeded');
         this.formAdd.resetForm();
       });
     } else {
