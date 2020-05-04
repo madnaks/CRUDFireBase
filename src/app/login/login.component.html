@@ -1,0 +1,98 @@
+<div class="sidenav">
+    <div class="login-main-text">
+        <h2>Student Management</h2>
+        <p>Login or register from here to access.</p>
+    </div>
+</div>
+<div class="main">
+    <div class="col-md-6 col-sm-12">
+        <div class="login-form">
+            <form (ngSubmit)="login()">
+                <div class="form-group">
+                    <label>User Name</label>
+                    <input type="text" class="form-control" placeholder="User Name" name="userName"
+                        [(ngModel)]="user.userName">
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" class="form-control" placeholder="Password" name="password"
+                        [(ngModel)]="user.password">
+                </div>
+                <button type="submit" class="btn btn-dark">Sign In</button>
+                <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#signUpModal">Sign
+                    Up</button>
+                <button type="button" class="btn btn-secondary" data-toggle="modal"
+                    data-target="#resetPasswordModal">Reset Password</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Sign up-->
+<div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="signUpModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="signUpModalLabel">Sign up</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form (ngSubmit)="addUser()">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">User Name</label>
+                        <input type="text" class="form-control" name="userName" [(ngModel)]="newUser.userName">
+                    </div>
+                    <div class="form-group">
+                        <label for="message-text" class="col-form-label">Password</label>
+                        <input type="password" class="form-control" name="password" [(ngModel)]="newUser.password">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                        #closeSignUpModal>Close</button>
+                    <button type="submit" class="btn btn-primary">Sign up</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+<!-- Modal Reset Password-->
+<div class="modal fade" id="resetPasswordModal" tabindex="-1" role="dialog" aria-labelledby="resetPasswordModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="resetPasswordModalLabel">Reset Password</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form [formGroup]="formResetPassword" (ngSubmit)="resetPassword()">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">User name</label>
+                        <input type="text" class="form-control" formControlName="userName" [(ngModel)]="restPasswordUser.userName">
+                    </div>
+                    <div class="form-group">
+                        <label for="message-text" class="col-form-label">Old password</label>
+                        <input type="password" class="form-control" formControlName="password" [(ngModel)]="restPasswordUser.password">
+                    </div>
+                    <div class="form-group">
+                        <label for="message-text" class="col-form-label">New password</label>
+                        <input type="password" class="form-control" formControlName="newPassword">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                        #closeResetPasswordModal>Close</button>
+                    <button type="submit" class="btn btn-primary">Reset</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

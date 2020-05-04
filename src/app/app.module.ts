@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,9 +15,11 @@ import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import Swal from 'sweetalert2';
+import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
-  { path : '' , component : ListStudentsComponent},
+  { path : '' , component : LoginComponent},
+  { path: 'login', component : LoginComponent },
   { path: 'all-student', component: ListStudentsComponent },
   { path: 'add-student', component: AddStudentComponent }
 ];
@@ -27,12 +29,14 @@ const routes: Routes = [
     AppComponent,
     AddStudentComponent,
     ListStudentsComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule, RouterModule.forRoot(routes),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     FormsModule,
+    ReactiveFormsModule,
     CommonModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot({
