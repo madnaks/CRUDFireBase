@@ -78,11 +78,12 @@ export class LoginComponent implements OnInit {
         val.password = this.formResetPassword.controls['newPassword'].value;
         debugger;
         this.userService.updateUser(val);
+        this.closeResetPasswordModal.nativeElement.click();
         this.toaster.success('Password of the user :'+this.restPasswordUser.userName+' was changed successfully','Succeeded');
       }
     }
     if(!validation){
-      this.toaster.error('User name or password incorrect !','Error');
+      this.toaster.error('User name or password incorrect','Error');
     }
   }
 }
