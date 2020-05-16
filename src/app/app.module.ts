@@ -16,6 +16,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import Swal from 'sweetalert2';
 import { LoginComponent } from './login/login.component';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 const routes: Routes = [
   { path : '' , component : LoginComponent},
@@ -24,12 +27,16 @@ const routes: Routes = [
   { path: 'add-student', component: AddStudentComponent }
 ];
 
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
+
 @NgModule({
   declarations: [
     AppComponent,
     AddStudentComponent,
     ListStudentsComponent,
-    LoginComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule, RouterModule.forRoot(routes),
@@ -44,6 +51,14 @@ const routes: Routes = [
       positionClass: 'toast-bottom-right',
       preventDuplicates:true
     }),
+    HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    })
   ],
   providers: [ AngularFirestore],
   bootstrap: [AppComponent]

@@ -1,0 +1,21 @@
+{
+    "ALL_STUDENTS": "Tous les étudiants",
+    "ADD_STUDENT": "Ajouter un étudiant",
+    "ENGLISH": "Anglais",
+    "FRENCH": "Français",
+    "LOG_OUT": "Se déconnecter",
+
+    "LIST_STUDENTS" : "Liste des étudiants",
+    "DELETE" : "Supprimer",
+    "EDIT" : "Éditier",
+    "CANCEL" : "Annuler",
+    "LANGUAGES" : "Langages",
+
+    "STUDENT_LAST_NAME":"Nom",
+    "STUDENT_FIRST_NAME":"Prénom",
+    "STUDENT_EMAIL":"Email",
+    "STUDENT_PASSWORD":"Mot de passe",
+    "STUDENT_AGE":"Age",
+    "STUDENT_PHONE":"Téléphone",
+    "STUDENT_ACTIONS":"Actions"
+}

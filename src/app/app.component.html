@@ -24,12 +24,31 @@
 <div class="row">
   <div class="col-md-2">
     <nav class="nav flex-column">
-      <a class="nav-link" routerLinkActive="active" routerLink="all-student">All Students</a>
-      <a class="nav-link" routerLinkActive="active" routerLink="add-student">Add Student</a>
-      <a class="nav-link" routerLink="login" (click)="logout()">Log out</a>
+      <a class="nav-link" routerLinkActive="active" routerLink="all-student">{{ 'ALL_STUDENTS' | translate}}</a>
+      <a class="nav-link" routerLinkActive="active" routerLink="add-student">{{ 'ADD_STUDENT' | translate }}</a>
+      <!-- <a class="nav-link" (click)="switchLanguage('en')">{{ 'ENGLISH' | translate }}</a> -->
+      <!-- <a class="nav-link" (click)="switchLanguage('fr')">{{ 'FRENCH' | translate }}</a> -->
+      <hr>
+      <label>{{'LANGUAGES' | translate }}</label>
+      <select #selectList  class="form-control" (click)="switchLanguage(selectList.value)">
+        <option value="en">{{ 'ENGLISH' | translate }}</option>
+        <option value="fr">{{ 'FRENCH' | translate }}</option>
+      </select>
+      <hr>
+      <a class="nav-link" routerLink="login" (click)="logout()">{{ 'LOG_OUT' | translate }}</a>
     </nav>
   </div>
   <div class="col-md-10">
     <router-outlet></router-outlet>
   </div>
 </div>
+<!-- <h1 translate>Title</h1>
+
+<div>
+  {{ 'Intro' | translate:user }}
+</div>
+
+
+<button (click)="switchLanguage('en')">en</button>
+
+<button (click)="switchLanguage('fr')">fr</button> -->

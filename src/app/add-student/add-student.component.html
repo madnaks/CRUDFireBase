@@ -1,12 +1,16 @@
 <div class="pt-3 pb-2 mb-3 border-bottom">
-    <h1 class="h2">Add Student</h1>
+    <h1 class="h2">{{ 'ADD_STUDENT' | translate }}</h1>
 </div>
 <form #addForm="ngForm" (ngSubmit)="addForm.form.valid && save()">
     <div class="row">
         <div class="col-lg-5 col-md-12 col-sm-12">
             <div class="row">
                 <div class="col-md-12 mb-3">
-                    <label>First Name</label>
+                    <label>{{ 'STUDENT_LAST_NAME' | translate}}</label>
+                    <input type="text" name="lastName" class="form-control" [(ngModel)]="student.lastName">
+                </div>
+                <div class="col-md-12 mb-3">
+                    <label>{{ 'STUDENT_FIRST_NAME' | translate}}</label>
                     <input type="text" name="firstName" class="form-control" [(ngModel)]="student.firstName"
                         #firstName="ngModel" [ngClass]="{ 'is-invalid': addForm.submitted && firstName.invalid }"
                         required>
@@ -14,14 +18,10 @@
                         <p *ngIf="firstName.errors.required">Name is required</p>
                     </div>
                 </div>
-                <div class="col-md-12 mb-3">
-                    <label>Last Name</label>
-                    <input type="text" name="lastName" class="form-control" [(ngModel)]="student.lastName">
-                </div>
             </div>
             <div class="row">
                 <div class="col-md-12 mb-3">
-                    <label>Email</label>
+                    <label>{{ 'STUDENT_EMAIL' | translate}}</label>
                     <input type="email" name="email" class="form-control" [(ngModel)]="student.email" #email="ngModel"
                         [ngClass]="{ 'is-invalid': addForm.submitted && email.invalid }" email required>
                     <div *ngIf="addForm.submitted && email.invalid" class="invalid-feedback">
@@ -30,7 +30,7 @@
                     </div>
                 </div>
                 <div class="col-md-12 mb-3">
-                    <label>Password</label>
+                    <label>{{ 'STUDENT_PASSWORD' | translate}}</label>
                     <input type="password" name="password" class="form-control" [(ngModel)]="student.password"
                         #password="ngModel" [ngClass]="{ 'is-invalid': addForm.submitted && password.invalid }"
                         minlength="6" required>
@@ -40,17 +40,17 @@
                     </div>
                 </div>
                 <div class="col-md-12 mb-3">
-                    <label>Age</label>
+                    <label>{{ 'STUDENT_AGE' | translate}}</label>
                     <input type="number" name="age" class="form-control" [(ngModel)]="student.age">
                 </div>
                 <div class="col-md-12 mb-3">
-                    <label>Phone number</label>
+                    <label> {{ 'STUDENT_PHONE' | translate}}</label>
                     <input type="text" name="phoneNumber" class="form-control" [(ngModel)]="student.phoneNumber">
                 </div>
             </div>
             <div class="form-group text-right">
-                <button type="button" class="btn btn-secondary">Cancel</button>
-                <button type="submit" class="btn btn-success">Add Student</button>
+                <button type="button" class="btn btn-secondary">{{ 'CANCEL' | translate}}</button>
+                <button type="submit" class="btn btn-success">{{ 'ADD_STUDENT' | translate }}</button>
             </div>
         </div>
     </div>

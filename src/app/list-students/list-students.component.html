@@ -1,29 +1,29 @@
 <div class="pt-3 pb-2 mb-3 border-bottom">
-    <h1 class="h2">Liste des étudiants</h1>
+    <h1 class="h2">{{ 'LIST_STUDENTS' | translate }}</h1>
 </div>
 <table class="table table-striped table-bordered">
     <thead>
         <tr>
-            <th scope="col"> Nom </th>
-            <th scope="col"> Prénom </th>
-            <th scope="col"> Email </th>
-            <th scope="col"> Mot de passe </th>
-            <th scope="col"> Age </th>
-            <th scope="col"> Téléphone </th>
-            <th scope="col"> Action </th>
+            <th scope="col"> {{ 'STUDENT_LAST_NAME' | translate}} </th>
+            <th scope="col"> {{ 'STUDENT_FIRST_NAME' | translate}}  </th>
+            <th scope="col"> {{ 'STUDENT_EMAIL' | translate}}  </th>
+            <th scope="col"> {{ 'STUDENT_PASSWORD' | translate}}  </th>
+            <th scope="col"> {{ 'STUDENT_AGE' | translate}}  </th>
+            <th scope="col"> {{ 'STUDENT_PHONE' | translate}}  </th>
+            <th scope="col"> {{ 'STUDENT_ACTIONS' | translate}}  </th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let student of students">
-            <td> {{student.firstName}} </td>
             <td> {{student.lastName}} </td>
+            <td> {{student.firstName}} </td>
             <td> {{student.email}} </td>
             <td> {{student.password}} </td>
             <td> {{student.age}} </td>
             <td> {{student.phoneNumber}} </td>
             <td>
-                <button type="button" class="btn btn-danger" (click)="delete(student.id)">Delete</button>
-                <button type="button" class="btn btn-primary" [routerLink]="'/add-student'" [queryParams]="{id:student.id}">Edit</button>
+                <button type="button" class="btn btn-danger" (click)="delete(student.id)"> {{ 'DELETE' | translate }}</button>
+                <button type="button" class="btn btn-primary" [routerLink]="'/add-student'" [queryParams]="{id:student.id}">{{ 'EDIT' | translate }}</button>
             </td>
         </tr>
     </tbody>

@@ -1,0 +1,21 @@
+{
+    "ALL_STUDENTS": "All students",
+    "ADD_STUDENT": "Add student",
+    "ENGLISH": "English",
+    "FRENCH": "French",
+    "LOG_OUT": "Log out",
+
+    "LIST_STUDENTS" : "List of students",
+    "DELETE" : "Delete",
+    "EDIT" : "Edit",
+    "CANCEL" : "Cancel",
+    "LANGUAGES" : "Languages",
+
+    "STUDENT_LAST_NAME":"Last name",
+    "STUDENT_FIRST_NAME":"First name",
+    "STUDENT_EMAIL":"Email",
+    "STUDENT_PASSWORD":"Password",
+    "STUDENT_AGE":"Age",
+    "STUDENT_PHONE":"Phone",
+    "STUDENT_ACTIONS":"Actions"
+}
