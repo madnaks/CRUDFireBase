@@ -26,8 +26,6 @@
     <nav class="nav flex-column">
       <a class="nav-link" routerLinkActive="active" routerLink="all-student">{{ 'ALL_STUDENTS' | translate}}</a>
       <a class="nav-link" routerLinkActive="active" routerLink="add-student">{{ 'ADD_STUDENT' | translate }}</a>
-      <!-- <a class="nav-link" (click)="switchLanguage('en')">{{ 'ENGLISH' | translate }}</a> -->
-      <!-- <a class="nav-link" (click)="switchLanguage('fr')">{{ 'FRENCH' | translate }}</a> -->
       <hr>
       <label>{{'LANGUAGES' | translate }}</label>
       <select #selectList  class="form-control" (click)="switchLanguage(selectList.value)">
